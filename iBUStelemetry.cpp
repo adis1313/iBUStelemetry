@@ -617,12 +617,93 @@ void iBUStelemetry::addSensor(byte type){
 
 void iBUStelemetry::setSensorMeasurement(byte adr, float value){
   switch(sensorType[adr]){
-    case 1:
-      sensorValue[adr] = (int)(value*10.0)+400;
+    case 0x01:
+      sensorValue[adr] = (int16_t) (value * 10.0) + 400;
       break;
-    case 2:
-      sensorValue[adr] = (int)value;
+	case 0x02:
+      sensorValue[adr] = (uint16_t) value;
       break;
+    case 0x03:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+    case 0x04:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+    case 0x05:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x06:
+      sensorValue[adr] = (uint16_t) value;
+      break;
+	case 0x07:
+      sensorValue[adr] = (uint16_t) value;
+      break;
+	case 0x08:
+      sensorValue[adr] = (uint16_t) value;
+      break;
+    case 0x09:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x0B:
+      sensorValue[adr] = (uint16_t) value;
+      break;
+    case 0x0C:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;	  
+	case 0x0D:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x0E:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x0F:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x10:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x11:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x12:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;
+	case 0x13:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x14:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x15:
+      sensorValue[adr] = (uint16_t) value;
+      break;
+	case 0x41:
+      sensorValue[adr] = (uint16_t) value;
+      break;  
+	case 0x7E:
+      sensorValue[adr] = (uint16_t) (value * 10);
+      break;
+	case 0x85:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x86:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x87:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x88:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x89:
+      sensorValue[adr] = (uint16_t) (value * 100);
+      break;
+	case 0x8A:
+      sensorValue[adr] = (int16_t) (value * 100);
+      break;	
+	default:
+	  sensorValue[adr] = (int16_t) value;
+	  break;
   }
 }
 //#endif
